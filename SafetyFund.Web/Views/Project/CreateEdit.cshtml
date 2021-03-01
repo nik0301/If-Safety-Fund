@@ -1,0 +1,124 @@
+﻿@model SafetyFund.Web.Models.ProjectEditViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@if (Model.Project.Id == 0)
+{
+    <h2>Pievienot jaunu projektu</h2>
+}
+else
+{
+    <h2>Labot projektu</h2>
+}
+
+
+<hr />
+<form asp-controller="Project" asp-action="CreateEdit" class="row" enctype="multipart/form-data" asp-antiforgery="true">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    @Html.HiddenFor(model => model.Project.Id)
+
+    
+
+    <div class="row form-group">
+        <label asp-for="Project.Title" class="col-xs-12 col-sm-2 control-label"></label>
+        <div class="col-xs-12 col-sm-6">
+            <input asp-for="Project.Title" placeholder="Ievadi projekta nosaukumu" class="col-md-8 form-control" />
+            <span asp-validation-for="Project.Title" class="text-danger"></span>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+    @Html.HiddenFor(model => model.Project.Image)
+    
+    <div class="row form-group">     
+            <label asp-for="Project.Image" class="col-xs-12 col-sm-2 control-label"></label>
+        
+        <div class="col-xs-12 col-sm-6">
+            <input asp-for="FeaturedImage" class="form-control"/>
+            <span asp-validation-for="FeaturedImage" class="text-danger"></span>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+    @if (Model.Project.Image != null)
+    {
+        <div class="row form-group">
+            <label class="col-xs-12 col-sm-2 control-label existing-img-label"></label>
+            <div class="col-xs-12 col-sm-6 img-resize">
+                <img src="@Url.Action("GetImage", new { id = Model.Project.Id })" alt="image" />
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    }
+
+
+
+
+    <div class="row form-group">
+       
+
+            <label asp-for="Project.Intro" class="col-xs-12 col-sm-2 control-label"></label>
+        
+        <div class="col-xs-12 col-sm-6">
+            <textarea maxlength="150" class="form-control desc-intro" placeholder="Apraksti projektu īsumā.Līdz 150 simboliem.." asp-for="Project.Intro" runat="server"></textarea>
+            <span asp-validation-for="Project.Intro" class="text-danger"></span>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+
+
+    <div class="row form-group">
+        
+            <label asp-for="Project.Description" class="col-xs-12 col-sm-2 control-label"></label>
+        
+        <div class="col-xs-12 col-sm-6">
+            <textarea class="form-control desc-input" placeholder="Projekta pilnais apraksts..." asp-for="Project.Description" runat="server"></textarea>
+             <span asp-validation-for="Project.Description" class="text-danger"></span>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    
+    <div class="row form-group">
+        <label asp-for="Project.OrderNumber" class="col-xs-12 col-sm-2 control-label"></label>
+        <div class="col-xs-12 col-sm-6">
+            <input asp-for="Project.OrderNumber" placeholder="Ievadi projekta secības numuru..." class="col-md-8 form-control" />
+            <span asp-validation-for="Project.OrderNumber" class="text-danger"></span>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    @Html.HiddenFor(model => model.Project.CampaignId)
+
+
+ 
+    <div class="row form-group">
+        <label class="col-xs-12 col-sm-2 control-label"></label>
+        <div class="col-xs-12 col-sm-6">
+            <input type="submit" value="Saglabāt" class="form-control btn btn-primary" />
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div class="row form-group">
+        <label class="col-xs-12 col-sm-2 control-label"></label>
+        <div class="col-xs-12 col-sm-6">          
+            <button type="button" class="form-control btn btn-primary" onclick="location.href='@Url.Action("Details","Home",new {id=Model.Project.CampaignId})'">Atgriezties pie kampaņas</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

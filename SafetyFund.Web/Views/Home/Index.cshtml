@@ -1,0 +1,84 @@
+﻿@using SafetyFund.Data.Reports
+@model List<CampaignReport>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("Index","User")'">Mārketinga personu vadības panelis</button>
+<button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("Index","Location")'">Valstu vadības panelis</button>
+
+<hr />
+<button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("CreateEdit","Home")'">Pievienot kampaņu</button>
+
+@if (Model.Any())
+{
+    <div class="a">
+        <h2>Kampaņu saraksts</h2>
+    </div>
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First()
+                                       .Campaign.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First()
+                                       .Campaign.StartDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First()
+                                       .Campaign.EndDateTime)
+                </th>
+                <th>
+                    Projektu skaits
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr onclick="location.href = '@Url.Action("Details", "Home", new
+                                          {
+                                              id = item.Campaign.Id
+                                          })'">
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Campaign.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Campaign.StartDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Campaign.EndDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProjectCount)
+                    </td>
+                    <td class="pazudis">
+                        @Html.ActionLink("Dzēst kampaņu", "Delete", new
+                        {
+                            id = item.Campaign.Id
+                        }, new
+                        {
+                            onclick = "return confirm('Tiešām vēlaties dzēst šo projektu?');"
+                        })
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="a">
+        <h3>Uz doto brīdi nav pievienota neviena kampaņa</h3>
+    </div>
+}

@@ -1,0 +1,55 @@
+﻿@model SafetyFund.Data.Models.Location
+@{
+    ViewData["Title"] = "CreateEdit";
+}
+@if (Model.Id == 0)
+{
+    <h1>Pievienot jaunu valsti, no kuras tiks atļauts balsot</h1>
+}
+else
+{
+    <h1>Labot valsts nosaukumu</h1>
+}
+    
+<hr />
+      
+        <form asp-action="CreateEdit">
+
+            @Html.HiddenFor(model => model.Id)
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row form-group">
+                <label asp-for="Country" class="col-xs-12 col-sm-2 control-label"></label>
+                <div class="col-xs-12 col-sm-6">
+                    <input asp-for="Country" class="col-md-8 form-control"/>
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            
+            
+
+            <div class="row form-group">
+                <label class="col-xs-12 col-sm-2 control-label"></label>
+                <div class="col-xs-12 col-sm-6">
+                    <input type="submit" value="Saglabāt" class="form-control btn btn-primary" />
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <div class="row form-group">
+                <label class="col-xs-12 col-sm-2 control-label"></label>
+                <div class="col-xs-12 col-sm-6">          
+                    <button type="button" class="form-control btn btn-primary" onclick="location.href='@Url.Action("Index","Location",new{})'">Atgriezties pie valstīm</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+
+        </form>
+    
+
+
+
+

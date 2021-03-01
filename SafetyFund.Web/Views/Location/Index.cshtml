@@ -1,0 +1,58 @@
+﻿@using SafetyFund.Data.Models
+@model IEnumerable<SafetyFund.Data.Models.Location>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Valstu saraksts, no kurām ir atļauts balsot</h2>
+@if (Model.ToList()
+   .Count > 0)
+{
+    <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("CreateEdit", "Location")'">Pievienot jaunu valsti</button>
+
+}
+<button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("Index", "Home")'">Atgriezties pie kampaņām</button>
+@if (Model.ToList().Count > 0)
+{
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr onclick="location.href = '@Url.Action("CreateEdit", "Location", new
+                                          {
+                                              id = item.Id
+                                          })'">
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+                    <td class="pazudis">
+                        @Html.ActionLink("Dzēst valsti", "Delete", new
+                        {
+                            id = item.Id
+                        }, new
+                        {
+                            onclick = "return confirm('Tiešām vēlaties dzēst šo projektu?');"
+                        })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <h2 class="text-center">Dotajā brīdī nav pievienotas valstis, no kurām var veikt balsošanu</h2>
+    @Html.ActionLink("Pievienot jaunu valsti ", "CreateEdit", "Location", new { id = (Location)null }, new { @class = "btn btn-block btn-primary" })
+}

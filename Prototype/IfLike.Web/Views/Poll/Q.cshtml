@@ -1,0 +1,96 @@
+﻿@model IFLike.Dto.PollDto
+@{
+    ViewData["Title"] = "If Poll";
+}
+
+<div class="new-header-container">
+    <div class="new-header">
+        <div class="poll-name">@Model.Name</div>
+    </div>
+</div>
+<div class="alert alert-info header-info visble-@Model.ShowMessage.ToString().ToLower()"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>@Model.Message</div>
+
+<div class="body-container">
+    <div class="bg-container"></div>
+    <div class="row cards-contaier">
+        @foreach (var pollItem in Model.PollItems)
+        {
+            <div class="col-md-4 col-sm-6">
+                <div class="vote-card">
+                    <p class="text-info votes-info">Votes: <span class="poll-vote-count odometer-number-change" data-pollItemId="@pollItem.Id" data-val="@pollItem.VotesCount">@pollItem.VotesCount</span></p>
+                    <div class="image-container text-center">
+                        <img src="/images/@pollItem.ImageId/@pollItem.ImageFileName" />
+                    </div>
+                    <div class="text-container">
+                        <h4>@pollItem.Name</h4>
+                        <p class="text-primary">@pollItem.Description</p>
+                    </div>
+                    <div class="btn-container text-center">
+                        <form asp-controller="Account" asp-action="ExternalLogin" asp-route-returnurl="/poll/vote/@pollItem.Id" method="post" class="form-horizontal">
+                            <div>
+                                <p>
+                                    <button type="submit" class="btn btn-default" name="provider" value="Facebook" title="Vote">Vote via Facebook</button>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.js"></script>
+}
+
+<script>
+
+    $(function () {
+        var connection = new signalR.HubConnection('/votehub');
+
+        connection.on('UpdateVoteCount',
+            function (data) {
+                UpdateVotes(data.id, data.count);
+            });
+
+        connection.start();
+    });
+
+    function UpdateVotes(id, count) {
+        var el = $("span[data-pollItemId='" + id + "']");
+
+        el.html(count);
+    }
+
+    //$(function () {
+
+    //    $('span.odometer-number-change').each(function () {
+
+    //        var od = new Odometer({
+    //            el: this,
+    //            format: 'd',
+    //            duration: 1000
+    //        });
+
+    //        od.update($(this).data('val'));
+    //    });
+    //})
+
+    function resizeVotes() {
+        $('.vote-card .text-container').css("height", "");
+
+        if (screen.width > 500) {
+            var textContainers = $('.vote-card .text-container').toArray();
+            var maxHeight = textContainers.map(function (x) { return $(x).height(); })
+                .reduce(function (acc, x) { return Math.max(acc, x); }, 0);
+            textContainers.forEach(function (x) { return $(x).height(maxHeight); });
+        }
+    }
+
+    $(resizeVotes);
+
+    window.addEventListener('resize', resizeVotes);
+
+</script>

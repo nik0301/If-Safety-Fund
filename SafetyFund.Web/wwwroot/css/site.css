@@ -1,0 +1,144 @@
+.page-header {
+    margin-bottom: 2px;
+}
+
+.row {
+    margin: 0;
+}
+
+.col-sm-2.control-label {
+    margin-top: 4px;
+    width: 94px;
+}
+
+.control-label.campaign-control-label {
+    width: 110px;
+}
+
+.main-container {
+    max-width: 1000px;
+    min-width: 300px;
+}
+
+.campaign-create-edit {
+    min-width: 300px;
+}
+
+@media (min-width:450px) and (max-width: 767px) {
+    .campaign-create-edit {
+        max-width: 420px;
+    }
+
+    .form-control {
+        width: 80%;
+    }
+
+    .img-resize {
+        width: 80%;
+    }
+
+    .existing-img-label.control-label {
+        padding: 0;
+        width: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .control-label {
+        padding: 0;
+        text-align: right;
+    }
+}
+
+@media (min-width: 992px) {
+    .row {
+        max-width: 700px;
+        width: 65%;
+    }
+
+        .row.form-group {
+            width: 100%;
+        }
+}
+
+.table-hover tr:hover td {
+    background-color: rgb(246, 235, 235);
+}
+
+.img-resize img {
+    height: auto;
+    width: 100%;
+}
+
+.form-group {
+    margin: 13px 0 13px 0;
+    padding-right: 15px;
+}
+
+textarea {
+    resize: none;
+}
+
+.form-control.desc-input {
+    height: 400px;
+}
+
+.form-control.desc-intro {
+    height: 120px;
+}
+
+.table td {
+    cursor: pointer;
+}
+
+.clip {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 200px;
+}
+
+.if-logo-name-wrapper {
+    text-align: center;
+}
+
+h1 {
+    display: inline-block;
+}
+
+.pazudis {
+    opacity: 0;
+}
+
+tr:hover .pazudis {
+    opacity: 1;
+}
+
+.a {
+    text-align: center;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding: 0 15px 0 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[href='.svg'] {
+    width: 100%;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}

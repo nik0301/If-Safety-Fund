@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SafetyFund.Data.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Mārketinga personu saraksts</h2>
+
+
+<button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("CreateEdit", "User")'">Pievienot jaunu mārketinga personu</button>
+<button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("Index", "Home")'">Atgriezties pie kampaņām</button>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr onclick="location.href = '@Url.Action("CreateEdit", "User", new { identity = item.Id.Replace('\\', '*') })'">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td class="pazudis">
+                    @Html.ActionLink("Dzēst", "Delete", new
+                    {
+                        id = item.Id.Replace('\\', '*')
+                    }, new
+                    {
+                        onclick = "return confirm('Tiešām vēlaties dzēst šo projektu?');"
+                    })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

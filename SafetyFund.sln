@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafetyFund.Web", "SafetyFund.Web\SafetyFund.Web.csproj", "{4B38082E-E69C-40DE-9FD5-39E6CD469E34}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafetyFund.Business", "SafetyFund.Business\SafetyFund.Business.csproj", "{85A6DCBD-60DD-469F-954A-95C1EF48A082}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafetyFund.Business.Tests", "SafetyFund.Business.Tests\SafetyFund.Business.Tests.csproj", "{C18AFEC2-D2D5-40F9-A4E2-1B15A30BCB6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafetyFund.Web.Tests", "SafetyFund.Web.Tests\SafetyFund.Web.Tests.csproj", "{5ECC733A-6AD7-41D6-9665-FEDAD65B11D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafetyFund.Data.Tests", "SafetyFund.Data.Tests\SafetyFund.Data.Tests.csproj", "{1CB4D222-D292-499D-A4AD-724389DA5F2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafetyFund.Data", "SafetyFund.Data\SafetyFund.Data.csproj", "{CF7CDA07-53AF-4839-8E1F-94B7A5229425}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B38082E-E69C-40DE-9FD5-39E6CD469E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B38082E-E69C-40DE-9FD5-39E6CD469E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B38082E-E69C-40DE-9FD5-39E6CD469E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B38082E-E69C-40DE-9FD5-39E6CD469E34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85A6DCBD-60DD-469F-954A-95C1EF48A082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85A6DCBD-60DD-469F-954A-95C1EF48A082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85A6DCBD-60DD-469F-954A-95C1EF48A082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85A6DCBD-60DD-469F-954A-95C1EF48A082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C18AFEC2-D2D5-40F9-A4E2-1B15A30BCB6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18AFEC2-D2D5-40F9-A4E2-1B15A30BCB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18AFEC2-D2D5-40F9-A4E2-1B15A30BCB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18AFEC2-D2D5-40F9-A4E2-1B15A30BCB6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECC733A-6AD7-41D6-9665-FEDAD65B11D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECC733A-6AD7-41D6-9665-FEDAD65B11D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECC733A-6AD7-41D6-9665-FEDAD65B11D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECC733A-6AD7-41D6-9665-FEDAD65B11D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB4D222-D292-499D-A4AD-724389DA5F2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB4D222-D292-499D-A4AD-724389DA5F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB4D222-D292-499D-A4AD-724389DA5F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB4D222-D292-499D-A4AD-724389DA5F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF7CDA07-53AF-4839-8E1F-94B7A5229425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF7CDA07-53AF-4839-8E1F-94B7A5229425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF7CDA07-53AF-4839-8E1F-94B7A5229425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF7CDA07-53AF-4839-8E1F-94B7A5229425}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDBF055B-CF93-49F6-8B79-A32912DFC2EF}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs2010at.ifint.biz/tfs/tfs2008collection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SafetyFund.Business.Tests\\SafetyFund.Business.Tests.csproj
+		SccProjectName1 = SafetyFund.Business.Tests
+		SccLocalPath1 = SafetyFund.Business.Tests
+		SccProjectUniqueName2 = SafetyFund.Business\\SafetyFund.Business.csproj
+		SccProjectName2 = SafetyFund.Business
+		SccLocalPath2 = SafetyFund.Business
+		SccProjectUniqueName3 = SafetyFund.Data.Tests\\SafetyFund.Data.Tests.csproj
+		SccProjectName3 = SafetyFund.Data.Tests
+		SccLocalPath3 = SafetyFund.Data.Tests
+		SccProjectUniqueName4 = SafetyFund.Data\\SafetyFund.Data.csproj
+		SccProjectName4 = SafetyFund.Data
+		SccLocalPath4 = SafetyFund.Data
+		SccProjectUniqueName5 = SafetyFund.Web.Tests\\SafetyFund.Web.Tests.csproj
+		SccProjectName5 = SafetyFund.Web.Tests
+		SccLocalPath5 = SafetyFund.Web.Tests
+		SccProjectUniqueName6 = SafetyFund.Web\\SafetyFund.Web.csproj
+		SccProjectName6 = SafetyFund.Web
+		SccLocalPath6 = SafetyFund.Web
+	EndGlobalSection
+EndGlobal

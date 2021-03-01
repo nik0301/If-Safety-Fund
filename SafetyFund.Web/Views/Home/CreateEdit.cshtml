@@ -1,0 +1,96 @@
+﻿@model SafetyFund.Data.Models.Campaign
+
+@{
+    ViewData["Title"] = "CreateEdit";
+}
+
+@if (Model.Id == 0)
+{
+    <h1>Pievienot jaunu kampaņu</h1>
+}
+else
+{
+    <h1>Labot kampaņas datus</h1>
+}
+
+
+<hr />
+<form asp-action="CreateEdit" class="row">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @Html.HiddenFor(model => model.Id)
+
+
+    <div class="row form-group">
+
+        <label asp-for="Title" class="col-xs-12 col-sm-2 control-label campaign-control-label"></label>
+
+        <div class="col-xs-12 col-sm-6">
+
+            <input asp-for="Title" class="col-md-8 form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+
+
+
+    <div class="row form-group">
+
+
+        <label asp-for="StartDateTime" class="col-xs-12 col-sm-2 control-label campaign-control-label"></label>
+
+        <div class="col-xs-12 col-sm-6">
+            <input asp-for="StartDateTime" class="form-control" />
+            <span asp-validation-for="StartDateTime" class="text-danger"></span>
+        </div>
+        <div class="clearfix"></div>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="row form-group">
+        <label asp-for="EndDateTime" class="col-xs-12 col-sm-2 control-label campaign-control-label"></label>
+        <div class="col-xs-12 col-sm-6">
+            <input asp-for="EndDateTime" class="form-control" />
+            <span asp-validation-for="EndDateTime" class="text-danger"></span>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+
+
+
+
+    <div class="row form-group">
+        <label class="col-xs-12 col-sm-2 control-label campaign-control-label"></label>
+        <div class="col-xs-12 col-sm-6">
+            <input type="submit" value="Saglabāt" class="form-control btn btn-primary" />
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div class="row form-group">
+        <label class="col-xs-12 col-sm-2 control-label campaign-control-label"></label>
+        <div class="col-xs-12 col-sm-6">          
+            <button type="button" class="form-control btn btn-primary" onclick="location.href='@Url.Action("Index","Home")'">Atgriezties pie kampaņām</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+
+
+
+</form>
+
+       
+
+

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<IFLike.Domain.Poll>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Polls</h2>
+@Html.ActionLink("Create","Create","Poll",new {}, new { @class = "btn btn-primary" })
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var a in Model)
+    {
+        <tr>
+            <td>
+                @a.Id
+            </td>
+            <td>
+                @a.Name
+            </td>
+            <td>
+                @a.Start
+            </td>
+            <td>
+                @a.End
+            </td>
+            <td>
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>
+

@@ -1,0 +1,138 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.vote-card {
+    border: 1px white;
+    margin: 1em;
+    min-width: 236px;
+    background-color: rgba(255, 255, 255, .85);
+    padding: 2.6em;
+}
+
+.image-container img {
+    height: 200px;
+    width: 100%;
+}
+
+.body-content {
+    opacity: 0.6;
+    background: url('../images/vote_bg.jpg');
+    background-size: cover;
+    width: 100%;
+    min-height: 628px;
+    z-index: -1;
+    left: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: auto;
+    max-width: 1020px;
+}
+
+.poll-header {
+    font-family: "GarageGothic-Bold","Open Sans",Arial,serif;
+}
+
+.cards-contaier {
+    margin-top: 3em;
+    width: 100%;
+}
+
+.row.cards-contaier {
+    margin-left: inherit;
+}
+
+/*@media screen and (max-width: 986px) {
+    .row.cards-contaier {
+        margin-left: inherit;
+    }
+}*/
+
+.alert.visble-false {
+    visibility: hidden;
+}
+
+.poll-vote-count {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.text-container {
+    padding: 1.6em 0;
+}
+
+
+
+.new-header-container {
+    z-index: 1;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 320px;
+    box-shadow: 0 0.1em 2em lightgrey;
+    background-color: white;
+}
+
+.new-header {
+    background: url(../images/logo.png) no-repeat white;
+    padding-left: 100px;
+    height: 80px;
+    vertical-align: middle;
+    background-size: 60px;
+    background-position: 10px;
+    padding-right: 10px;
+    max-width: 1020px;
+    margin: auto;
+    font-family: "GarageGothic-Bold","Open Sans",Arial,serif;
+}
+
+.poll-name {
+    font-size: 30px;
+    line-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 80px;
+    white-space: nowrap;
+}
+
+.header-info {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 80px;
+    width: 100%;
+}

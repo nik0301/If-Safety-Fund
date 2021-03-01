@@ -1,0 +1,100 @@
+﻿@model SafetyFund.Web.Models.CampaignDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h2 class="text-center">Kampaņas informācija</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Campaign.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Campaign.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Campaign.StartDateTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Campaign.StartDateTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Campaign.EndDateTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Campaign.EndDateTime)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    @Html.ActionLink("Labot kampaņas datus", "CreateEdit", "Home", new { id= Model.Campaign.Id }, new { @class = "btn btn-block btn-primary" })
+
+   @if(Model.Projects.Count>0) {@Html.ActionLink("Pievienot jaunu projektu ", "CreateEdit", "Project", new { campaignId = Model.Campaign.Id }, new { @class = "btn btn-block btn-primary" })}
+            @Html.ActionLink("Atgriezties atpakaļ", "Index", "Home", new {} ,new{ @class = "btn btn-block btn-primary" })
+
+</div>
+
+@if (Model.Projects.Count > 0)
+{
+    
+    <h2 class="text-center">Kampaņas projekti</h2>
+                                              
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Projects.First().Project.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Projects.First().Project.Intro)
+                </th>             
+                <th>
+                    @Html.DisplayNameFor(model => model.Projects.First().Project.OrderNumber)
+                </th>
+                <th>
+                   Balsu skaits
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Projects)
+            {
+                <tr onclick="location.href = '@Url.Action("CreateEdit", "Project", new
+                                          {
+                                              id = item.Project.Id
+                                          })'">
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project.Title)
+                    </td>
+                    <td>
+                        <div class="clip">
+                            @Html.DisplayFor(modelItem => item.Project.Intro)
+                        </div>
+                    </td>    
+                    <td>@Html.DisplayFor(modelItem=>item.Project.OrderNumber)</td>
+                    <td>@Html.DisplayFor(modelItem=>item.Votes)</td>
+
+                  
+                    <td class="pazudis">
+                        @Html.ActionLink("Dzēst projektu", "Delete", "Project", new { id = item.Project.Id }, new { onclick = "return confirm('Tiešām vēlaties dzēst šo projektu?');" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+    <h2 class="text-center">Dotajā brīdī kampaņa nesatur projektus, bet Jūs varat tos pievienot</h2>
+    @Html.ActionLink("Pievienot jaunu projektu ", "CreateEdit", "Project", new { campaignId = Model.Campaign.Id }, new { @class = "btn btn-block btn-primary" })
+
+}
+

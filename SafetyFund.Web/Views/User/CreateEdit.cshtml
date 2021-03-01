@@ -1,0 +1,72 @@
+﻿@model UserEditViewModel
+
+@{
+    ViewData["Title"] = "CreateEdit";
+}
+
+@if (Model.Id == null)
+{
+    <h2>Pievienot jaunu personu:</h2>
+}
+else
+{
+    <h2>lietotāja @Model.User.FullName dati:</h2>
+}
+
+<hr />
+
+<form asp-action="CreateEdit" class="row">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    @if (Model.Id == null)
+    {
+        <div class="row form-group">
+            <label asp-for="User.Id" class="col-xs-12 col-sm-2 control-label campaign-control-label"></label>
+
+            <div class="col-xs-12 col-sm-6">
+                <input asp-for="User.Id" class="col-md-8 form-control" />
+                <span asp-validation-for="User.Id" class="text-danger"></span>
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+    }
+    else
+    {
+        @Html.HiddenFor(item => Model.User.Id);
+    }
+
+    <div class="row form-group">
+        <label asp-for="User.FullName" class="col-xs-12 col-sm-2 control-label campaign-control-label"></label>
+        <div class="col-xs-12 col-sm-6">
+            <input asp-for="User.FullName" class="form-control" />
+            <span asp-validation-for="User.FullName" class="text-danger"></span>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    @Html.HiddenFor(item => Model.IsExisting)
+
+    @if (Model.HasErrors)
+    {
+        <p>@Model.ErrorMessage</p>
+    }
+
+    <div class="row form-group">
+        <label class="col-xs-12 col-sm-2 control-label campaign-control-label"></label>
+        <div class="col-xs-12 col-sm-6">
+            <input type="submit" value="Saglabāt" class="form-control btn btn-primary" />
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="row form-group">
+        <label class="col-xs-12 col-sm-2 control-label campaign-control-label"></label>
+        <div class="col-xs-12 col-sm-6">
+            <button type="button" class="form-control btn btn-primary" onclick="location.href='@Url.Action("Index","User")'">Atgriezties pie lietotājiem</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</form>
+
+
